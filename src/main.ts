@@ -1,9 +1,12 @@
 import './style.css';
+import { registerSW } from 'virtual:pwa-register';
 import { Game } from './game.js';
 import type { Direction } from './game.js';
 import { Ui } from './ui.js';
 import { Input } from './input.js';
 import { Storage } from './storage.js';
+
+registerSW({ immediate: true });
 
 class App {
 	private game: Game;

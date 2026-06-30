@@ -8,6 +8,8 @@ Classic [2048](https://en.wikipedia.org/wiki/2048_(video_game)) game running ent
 
 Use the arrow keys, swipe, or the on-screen buttons to slide the tiles. Join matching numbers to reach **2048**.
 
+It's also an installable **PWA** — add it to your home screen and it works offline.
+
 ## Development
 
 ```bash
@@ -22,6 +24,7 @@ npm run deploy   # build and publish ./dist to the gh-pages branch
 
 ```
 web/            HTML entry point (index.html)
+  public/       static assets copied as-is (PWA icons, favicon)
 src/            TypeScript source and styles
   main.ts       app bootstrap
   game.ts       game logic (board, moves, scoring)
@@ -36,4 +39,5 @@ dist/           production build output (generated)
 
 - **TypeScript** (ES2020, strict)
 - **Vite** — dev server and bundler
+- **vite-plugin-pwa** — service worker, offline precache, and web app manifest
 - **gh-pages** — deployment to GitHub Pages

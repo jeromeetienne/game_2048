@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .n  { font-family: Helvetica, Arial, sans-serif; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+    </style>
+  </defs>
+  <!-- app background -->
+  <rect width="512" height="512" rx="96" fill="#faf8ef"/>
+  <!-- board -->
+  <rect x="56" y="56" width="400" height="400" rx="32" fill="#bbada0"/>
+
+  <!-- 2x2 tiles -->
+  <!-- 2 -->
+  <rect x="84"  y="84"  width="160" height="160" rx="16" fill="#eee4da"/>
+  <text class="n" x="164" y="166" font-size="96" fill="#776e65">2</text>
+  <!-- 4 -->
+  <rect x="268" y="84"  width="160" height="160" rx="16" fill="#ede0c8"/>
+  <text class="n" x="348" y="166" font-size="96" fill="#776e65">4</text>
+  <!-- 8 -->
+  <rect x="84"  y="268" width="160" height="160" rx="16" fill="#f2b179"/>
+  <text class="n" x="164" y="350" font-size="96" fill="#f9f6f2">8</text>
+  <!-- 2048 -->
+  <rect x="268" y="268" width="160" height="160" rx="16" fill="#edc22e"/>
+  <text class="n" x="348" y="352" font-size="50" fill="#f9f6f2">2048</text>
+</svg>
