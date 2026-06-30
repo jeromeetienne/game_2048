@@ -1,0 +1,15 @@
+{
+	"name": "2048-game",
+	"version": "1.0.0",
+	"description": "Classic 2048 game running entirely in the browser (TypeScript + Vite, static).",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"typescript": "^5.5.4",
+		"vite": "^5.4.0"
+	}
+}
