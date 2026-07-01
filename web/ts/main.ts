@@ -1,4 +1,9 @@
-import './style.css';
+/**
+ * @file Application entry point. Registers the service worker and wires the
+ * {@link Game} model to the {@link Ui}, {@link Input} and {@link Storage} layers.
+ */
+
+import '../css/style.css';
 import { registerSW } from 'virtual:pwa-register';
 import { Game } from './game.js';
 import type { Direction } from './game.js';
@@ -8,6 +13,10 @@ import { Storage } from './storage.js';
 
 registerSW({ immediate: true });
 
+/**
+ * Top-level controller: owns the game and UI, handles moves, restarts and
+ * win/lose transitions, and persists the best score.
+ */
 class App {
 	private game: Game;
 	private ui: Ui;
@@ -15,6 +24,7 @@ class App {
 	private keepPlaying: boolean;
 	private over: boolean;
 
+	/** Boots the game, builds the UI and binds all input and button handlers. */
 	constructor() {
 		this.ui = new Ui();
 		this.best = Storage.loadBest();
@@ -42,6 +52,10 @@ class App {
 		this.refresh();
 	}
 
+	/**
+	 * Applies a move, updates the best score, refreshes the UI and shows the
+	 * win or game-over overlay when appropriate.
+	 */
 	private handleMove(direction: Direction): void {
 		if (this.over === true) {
 			return;
@@ -70,6 +84,7 @@ class App {
 		}
 	}
 
+	/** Starts a fresh game and resets overlay and transient state. */
 	private restart(): void {
 		this.game = new Game();
 		this.keepPlaying = false;
@@ -79,6 +94,7 @@ class App {
 		this.refresh();
 	}
 
+	/** Re-renders tiles and scores from the current game state. */
 	private refresh(): void {
 		this.ui.render(this.game);
 		this.ui.updateScores(this.game.score, this.best);

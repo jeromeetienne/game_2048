@@ -1,14 +1,27 @@
+/**
+ * @file Input handling: translates arrow keys, touch swipes and on-screen
+ * direction buttons into move directions.
+ */
+
 import type { Direction } from './game.js';
 
+/** Minimum touch travel in pixels before a gesture counts as a swipe. */
 const SWIPE_THRESHOLD = 24;
 
+/** Binds all supported input sources to a single move callback. */
 export class Input {
+	/**
+	 * Wires keyboard, swipe and button input to the given handler.
+	 * @param board Element that receives touch gestures.
+	 * @param onMove Called with the resolved direction for each input.
+	 */
 	static bind(board: HTMLElement, onMove: (direction: Direction) => void): void {
 		Input.bindKeyboard(onMove);
 		Input.bindSwipe(board, onMove);
 		Input.bindButtons(onMove);
 	}
 
+	/** Binds arrow-key presses, preventing their default scroll behavior. */
 	private static bindKeyboard(onMove: (direction: Direction) => void): void {
 		window.addEventListener('keydown', (event) => {
 			const dir = Input.keyToDirection(event.key);
@@ -20,6 +33,7 @@ export class Input {
 		});
 	}
 
+	/** Maps a `KeyboardEvent.key` to a direction, or undefined if unrelated. */
 	private static keyToDirection(key: string): Direction | undefined {
 		switch (key) {
 			case 'ArrowUp':
@@ -35,6 +49,10 @@ export class Input {
 		}
 	}
 
+	/**
+	 * Binds single-finger swipe gestures on the board. A swipe past
+	 * {@link SWIPE_THRESHOLD} resolves to the dominant axis's direction.
+	 */
 	private static bindSwipe(board: HTMLElement, onMove: (direction: Direction) => void): void {
 		let startX = 0;
 		let startY = 0;
@@ -86,6 +104,7 @@ export class Input {
 		});
 	}
 
+	/** Binds the on-screen direction buttons via their `data-dir` attribute. */
 	private static bindButtons(onMove: (direction: Direction) => void): void {
 		const buttons = document.querySelectorAll<HTMLButtonElement>('.ctrl');
 		buttons.forEach((button) => {

@@ -24,14 +24,15 @@ npm run deploy   # build and publish ./dist to the gh-pages branch
 
 ```
 web/            HTML entry point (index.html)
-  public/       static assets copied as-is (PWA icons, favicon)
-src/            TypeScript source and styles
-  main.ts       app bootstrap
-  game.ts       game logic (board, moves, scoring)
-  ui.ts         rendering and animations
-  input.ts      keyboard / swipe / button handling
-  storage.ts    best-score persistence (localStorage)
-  style.css     styles
+  images/icons/ static assets copied as-is (PWA icons, favicon)
+  css/          styles
+    style.css
+  ts/           TypeScript source
+    main.ts       app bootstrap
+    game.ts       game logic (board, moves, scoring)
+    ui.ts         rendering and animations
+    input.ts      keyboard / swipe / button handling
+    storage.ts    best-score persistence (localStorage)
 dist/           production build output (generated)
 ```
 

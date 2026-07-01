@@ -276,6 +276,25 @@ body {
 	margin-top: 18px;
 }
 
+.credit {
+	margin-top: 6px;
+}
+
+.credit .heart {
+	color: #e2574c;
+	vertical-align: -3px;
+}
+
+.credit a {
+	color: #776e65;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.credit a:hover {
+	text-decoration: underline;
+}
+
 @media (hover: hover) {
 	.controls {
 		opacity: 0.85;

@@ -4,6 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
 	root: 'web',
 	base: './',
+	publicDir: 'images/icons',
 	server: {
 		port: process.env.PORT ? Number(process.env.PORT) : 5173,
 	},
