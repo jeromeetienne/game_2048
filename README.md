@@ -33,6 +33,7 @@ web/            HTML entry point (index.html)
     ui.ts         rendering and animations
     input.ts      keyboard / swipe / button handling
     storage.ts    best-score persistence (localStorage)
+    vite-env.d.ts ambient types for Vite and the PWA plugin
 dist/           production build output (generated)
 ```
 
