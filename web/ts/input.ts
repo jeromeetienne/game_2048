@@ -12,12 +12,11 @@ const SWIPE_THRESHOLD = 24;
 export class Input {
 	/**
 	 * Wires keyboard, swipe and button input to the given handler.
-	 * @param board Element that receives touch gestures.
 	 * @param onMove Called with the resolved direction for each input.
 	 */
-	static bind(board: HTMLElement, onMove: (direction: Direction) => void): void {
+	static bind(onMove: (direction: Direction) => void): void {
 		Input.bindKeyboard(onMove);
-		Input.bindSwipe(board, onMove);
+		Input.bindSwipe(onMove);
 		Input.bindButtons(onMove);
 	}
 
@@ -50,15 +49,15 @@ export class Input {
 	}
 
 	/**
-	 * Binds single-finger swipe gestures on the board. A swipe past
+	 * Binds single-finger swipe gestures on the whole page. A swipe past
 	 * {@link SWIPE_THRESHOLD} resolves to the dominant axis's direction.
 	 */
-	private static bindSwipe(board: HTMLElement, onMove: (direction: Direction) => void): void {
+	private static bindSwipe(onMove: (direction: Direction) => void): void {
 		let startX = 0;
 		let startY = 0;
 		let tracking = false;
 
-		board.addEventListener(
+		document.body.addEventListener(
 			'touchstart',
 			(event) => {
 				if (event.touches.length !== 1) {
@@ -71,7 +70,7 @@ export class Input {
 			{ passive: true },
 		);
 
-		board.addEventListener(
+		document.body.addEventListener(
 			'touchmove',
 			(event) => {
 				if (tracking === true) {
@@ -81,7 +80,7 @@ export class Input {
 			{ passive: false },
 		);
 
-		board.addEventListener('touchend', (event) => {
+		document.body.addEventListener('touchend', (event) => {
 			if (tracking === false) {
 				return;
 			}

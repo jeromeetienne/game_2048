@@ -41,10 +41,7 @@ class App {
 		this.game = new Game();
 		this.ui.buildGrid(this.game.size);
 
-		const board = document.getElementById('board');
-		if (board !== null) {
-			Input.bind(board, (dir) => this.handleMove(dir));
-		}
+		Input.bind((dir) => this.handleMove(dir));
 
 		const newGameButton = document.getElementById('new-game');
 		if (newGameButton !== null) {
