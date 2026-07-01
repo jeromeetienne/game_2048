@@ -11,7 +11,15 @@ import { Ui } from './ui.js';
 import { Input } from './input.js';
 import { Storage } from './storage.js';
 
-registerSW({ immediate: true });
+console.log(`[2048] service worker version: ${__SW_VERSION__}`);
+
+registerSW({
+	immediate: true,
+	onRegisteredSW(swUrl, registration) {
+		const state = registration?.active?.state ?? 'installing';
+		console.log(`[2048] service worker ${state} (${__SW_VERSION__}) at ${swUrl}`);
+	},
+});
 
 /**
  * Top-level controller: owns the game and UI, handles moves, restarts and

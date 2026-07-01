@@ -1,10 +1,18 @@
+import { createRequire } from 'node:module';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+
+const require = createRequire(import.meta.url);
+const pkg = require('./package.json') as { version: string };
+const swVersion = `${pkg.version}+${new Date().toISOString()}`;
 
 export default defineConfig({
 	root: 'web',
 	base: './',
 	publicDir: 'images/icons',
+	define: {
+		__SW_VERSION__: JSON.stringify(swVersion),
+	},
 	server: {
 		port: process.env.PORT ? Number(process.env.PORT) : 5173,
 	},

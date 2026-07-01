@@ -6,3 +6,6 @@
 // `vite-plugin-pwa/client`: declares the virtual `virtual:pwa-register` module
 // (generated at build time) imported in main.ts.
 /// <reference types="vite-plugin-pwa/client" />
+
+/** Build-time service worker version string, injected via Vite `define`. */
+declare const __SW_VERSION__: string;
