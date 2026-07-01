@@ -3,6 +3,8 @@
 	"version": "1.0.0",
 	"description": "Classic 2048 game running entirely in the browser (TypeScript + Vite, static).",
 	"type": "module",
+	"license": "MIT",
+	"author": "Jerome Etienne",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -p tsconfig.build.json && vite build",

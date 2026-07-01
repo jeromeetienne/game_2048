@@ -42,3 +42,7 @@ dist/           production build output (generated)
 - **Vite** — dev server and bundler
 - **vite-plugin-pwa** — service worker, offline precache, and web app manifest
 - **gh-pages** — deployment to GitHub Pages
+
+## License
+
+[MIT](LICENSE) © Jerome Etienne
